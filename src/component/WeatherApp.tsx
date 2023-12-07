@@ -7,7 +7,7 @@ import thunderIcon from '../assets/thunder.png'
 import windyIcon from '../assets/wind.png'
 import searchIcon from '../assets/search.png'
 import humidityIcon from '../assets/humidity.png'
-import sunIcon from './assets/sun.png'
+import sunIcon from '../assets/sun.png'
 import './WeatherApp.css'
 
 interface WeatherProps {
@@ -52,7 +52,7 @@ location.innerHTML = `${data.name}`
         </div>
     </div>
     <div className='weather-image'>
-      <img src={sunIcon} alt='clear icon'/>
+      <img src={rainyIcon} alt='clear icon'/>
     </div>
     <div className='weather-temp'> -24 &deg;</div>
     <div className='weather-location'>London</div>
