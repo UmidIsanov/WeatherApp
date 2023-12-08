@@ -20,7 +20,7 @@ humidity?: number
 const WeatherApp: React.FC<WeatherProps> = () => {
 
 
-const [wicon, setWicon]=useState(snowyIcon)
+const [wicon, setWicon]=useState(clearIcon)
 
 
 const Search = async () => {
@@ -73,8 +73,8 @@ else{
     <div className='weather-image'>
       <img src={wicon} alt='clear icon'/>
     </div>
-    <div className='weather-temp'> 15 &deg;</div>
-    <div className='weather-location'>London</div>
+    <div className='weather-temp'> 10 &deg;</div>
+    <div className='weather-location'>New York</div>
     <div className='data-container'>
        <div className='element'>
         <img src={humidityIcon} alt='' className='icon'/>
