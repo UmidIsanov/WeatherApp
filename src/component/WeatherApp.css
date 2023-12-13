@@ -75,7 +75,8 @@ body {
 .weather-image {
   display: flex;
   justify-content: center;
-  margin-top: -70px;
+  margin-top: -60px;
+
 }
 .weather-temp {
   display: flex;
@@ -83,6 +84,7 @@ body {
   font-size: 60px;
   font-weight: 700;
   color: white;
+  margin-top: -60px;
 }
 .weather-location {
   display: flex;
