@@ -43,7 +43,7 @@ const WeatherApp: React.FC<WeatherProps> = () => {
     }
 
     try {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${element.value}&units=Metric&appid=745f4f060564fcc91ddfa6083279a610`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${element.value}&units=Metric&appid=${process.env.REACT_APP_API_KEY}`;
       const response = await fetch(url);
 
       if (!response.ok) {
