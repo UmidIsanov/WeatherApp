@@ -71,9 +71,11 @@ body {
   border-radius: 50%;
   opacity: 0.8;
 }
+
 .weather-image {
   display: flex;
   justify-content: center;
+  margin-top: -70px;
 }
 .weather-temp {
   display: flex;

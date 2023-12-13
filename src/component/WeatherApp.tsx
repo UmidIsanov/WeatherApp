@@ -8,6 +8,7 @@ import searchIcon from '../assets/search.png';
 import humidityIcon from '../assets/humidity.png';
 import drizzleIcon from '../assets/drizzle.png';
 import './WeatherApp.css';
+import GetWeatherIcon from './GetWeatherIcon';
 
 interface WeatherProps {
   temp?: number;
@@ -30,7 +31,7 @@ interface WeatherData {
 }
 
 const WeatherApp: React.FC<WeatherProps> = () => {
-  const [wicon, setWicon] = useState<string>(clearIcon);
+  const [wicon, setWicon] = useState<string>('01d');
   const [autocompleteItems, setAutocompleteItems] = useState<string[]>([]);
   const [value, setValue] = useState('');
 
@@ -54,7 +55,7 @@ const WeatherApp: React.FC<WeatherProps> = () => {
       const humudity = document.querySelector('.humidity-persentage') as HTMLDivElement;
       const wind = document.querySelector('.wind-speed') as HTMLDivElement;
       const temperature = document.querySelector('.weather-temp') as HTMLDivElement;
-      const location = document.querySelector('.weather-location') as HTMLDivElement;
+      const location = document.querySelector('.weather-location') as HTMLDivElement; 
 
       humudity.innerHTML = `${data.main.humidity}%`;
       wind.innerHTML = `${data.wind.speed} hm/h`;
@@ -62,32 +63,8 @@ const WeatherApp: React.FC<WeatherProps> = () => {
       location.innerHTML = `${data.name}`;
 
       const weatherIconCode = data.weather[0]?.icon || '';
-      switch (weatherIconCode) {
-        case '01d':
-        case '01n':
-          setWicon(clearIcon);
-          break;
-        case '02d':
-        case '02n':
-          setWicon(cloudyIcon);
-          break;
-        case '03d':
-        case '03n':
-          setWicon(drizzleIcon);
-          break;
-        case '09d':
-        case '09n':
-        case '10d':
-        case '10n':
-          setWicon(rainyIcon);
-          break;
-        case '13d':
-        case '13n':
-          setWicon(snowyIcon);
-          break;
-        default:
-          setWicon(clearIcon);
-      }
+      setWicon(weatherIconCode);
+      console.log(data)
 
       const filteredCities = data.name.toLowerCase().includes(value.toLowerCase());
       setAutocompleteItems(filteredCities ? [data.name] : []);
@@ -115,7 +92,7 @@ const WeatherApp: React.FC<WeatherProps> = () => {
         </div>
       </div>
       <div className='weather-image'>
-        <img src={wicon} alt='clear icon' />
+        <img width={300} height={300} style={{objectFit: 'cover'}} src={GetWeatherIcon(wicon || '')} alt='clear icon' />
       </div>
       <div className='weather-temp'>{/* Display temperature here */}</div>
       <div className='weather-location'>{/* Display location here */}</div>
@@ -128,7 +105,7 @@ const WeatherApp: React.FC<WeatherProps> = () => {
           </div>
         </div>
         <div className='element'>
-          <img src={windyIcon} alt='' className='icon' />
+          <img src={windyIcon} alt='' className='icon Image' />
           <div className='data'>
             <div className='wind-speed'></div>
             <div className='text'>Wind</div>
